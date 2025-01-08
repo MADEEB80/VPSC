@@ -95,7 +95,7 @@
     <link href="assets/css/main.css" rel="stylesheet" />
   </head>
 
-  <body class="contact-page">
+  <body class="get-a-quote-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center"
@@ -156,164 +156,101 @@
       <div
         class="page-title dark-background"
         data-aos="fade"
-        style="background-image: url(assets/img/hero-contact.jpg)"
+        style="background-image: url(assets/img/hero-join.jpg)"
       >
         <div class="container position-relative">
-          <h1>Contact</h1>
+          <h1>Student/Staff Portal</h1>
           <p>
-            Vanguard Public School & College (VPSC) is dedicated to providing
-            quality education from Pre-School to College, fostering academic
-            excellence, holistic development, and critical thinking. Our modern
-            facilities, co-curricular and extracurricular programs,
-            student-focused mentorship, and emphasis on creativity, innovation,
-            and lifelong learning make VPSC a cornerstone of 21st-century
-            education.
+            Access your personalized dashboard by logging in below. If you face
+            any issues, please contact support at
+            <strong>info@vpsc.ac.pk</strong>.
           </p>
           <nav class="breadcrumbs">
             <ol>
               <li><a href="index.html">Home</a></li>
-              <li class="current">Contact</li>
+              <li class="current">Join VPSC</li>
             </ol>
           </nav>
         </div>
       </div>
       <!-- End Page Title -->
 
-      <!-- Contact Section -->
-      <section id="contact" class="contact section">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <!-- 
-          <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-            <iframe
-              style="border: 0; width: 100%; height: 270px"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.215341289943!2d67.06067736016837!3d24.89063529395876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33ee5c42d9701%3A0xffd942685af4341b!2sChandni%20Chowk%20Gulshan-e-Iqbal%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1735585687011!5m2!1sen!2s"
-              frameborder="0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>  -->
-          <!--  End Google Maps -->
+      <!-- Get A Quote Section -->
+      <section id="get-a-quote" class="get-a-quote section">
+        <div class="container">
+          <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="col-lg-5 quote-bg"
+              style="background-image: url(assets/img/quote-bg.jpg)"
+            ></div>
 
-          <div class="row gy-4">
-            <div class="col-lg-4">
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>
-                    <strong>Campus 1:</strong> Plot No 1010, Chandni Chowk, Azam
-                    Town, Near Phase - I D.H.A, Karachi.
-                  </p>
-                  <p>
-                    <strong>Campus 2:</strong> Plot No 171, Sachal Goth, Superco
-                    Road, Gulshan-e-Iqbal, Karachi.
-                  </p>
-                  <p>
-                    <strong>Campus 3:</strong> Survey No 36, Plot No 1211,
-                    Gharibabad, National Highway, Karachi.
-                  </p>
-                </div>
-              </div>
-              <!-- End Info Item -->
-
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="400"
-              >
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Us</h3>
-                  <p>+92 21 35382194</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
-
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="500"
-              >
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Us</h3>
-                  <p>info@vpsc.ac.pk</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
-            </div>
-
-            <div class="col-lg-8">
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
               <form
-                action="forms/contact.php"
+                action="forms/login-handler.php"
                 method="post"
                 class="php-email-form"
-                data-aos="fade-up"
-                data-aos-delay="200"
+                onsubmit="return validateLoginForm(event)"
               >
+                <h3>Login</h3>
+                <p>Enter your credentials below:</p>
+
                 <div class="row gy-4">
-                  <div class="col-md-6">
+                  <div class="col-12">
                     <input
                       type="text"
-                      name="name"
+                      name="user_id"
                       class="form-control"
-                      placeholder="Your Name"
-                      required=""
+                      placeholder="ID"
+                      required
                     />
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-12">
                     <input
-                      type="email"
+                      type="password"
+                      name="password"
                       class="form-control"
-                      name="email"
-                      placeholder="Your Email"
-                      required=""
+                      placeholder="Password"
+                      required
                     />
                   </div>
 
-                  <div class="col-md-12">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="subject"
-                      placeholder="Subject"
-                      required=""
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      rows="6"
-                      placeholder="Message"
-                      required=""
-                    ></textarea>
-                  </div>
-
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
+                  <div class="col-12 text-center">
+                    <div id="error-message" style="color: red; display: none">
+                      Please enter the correct ID and Password.
                     </div>
-
-                    <button type="submit">Send Message</button>
+                    <button id="loginButton" type="submit">Login</button>
+                    <br />
+                    <br />
+                    or
+                    <br />
+                    <br />
+                    <a
+                      class="btn-getstarted"
+                      href="join.html"
+                      style="
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background-color: #007bff;
+                        color: white;
+                        text-align: center;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        transition: background-color 0.3s;
+                      "
+                    >
+                      Join VPSC
+                    </a>
                   </div>
                 </div>
               </form>
             </div>
-            <!-- End Contact Form -->
+            <!-- End Quote Form -->
           </div>
         </div>
       </section>
-      <!-- /Contact Section -->
+      <!-- /Get A Quote Section -->
     </main>
     <footer id="footer" class="footer dark-background">
       <div class="container footer-top">
@@ -400,5 +337,40 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form"); // Select the form element
+        const errorMessage = document.getElementById("error-message");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const userId = document.querySelector('input[name="user_id"]');
+          const password = document.querySelector('input[name="password"]');
+
+          // Check if either input is empty
+          if (!userId.value.trim() || !password.value.trim()) {
+            // Delay the error message display
+            setTimeout(function () {
+              errorMessage.textContent = "Both ID and Password are required.";
+              errorMessage.style.display = "block";
+            }, 1000); // Delay of 1 second (1000 milliseconds)
+
+            return;
+          }
+
+          // Show error message for incorrect credentials (example)
+          setTimeout(function () {
+            errorMessage.textContent =
+              "Please enter the correct ID and Password.";
+            errorMessage.style.display = "block";
+          }, 1000); // Delay of 1 second (1000 milliseconds)
+
+          // Clear the input fields
+          userId.value = "";
+          password.value = "";
+        });
+      });
+    </script>
   </body>
 </html>
