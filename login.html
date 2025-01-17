@@ -147,7 +147,9 @@
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        <a class="btn-getstarted" href="login.html">Login VPSC</a>
+        <a class="btn-getstarted" href="login.html"
+          >Login to Staff/Student Portal</a
+        >
       </div>
     </header>
 
@@ -168,7 +170,7 @@
           <nav class="breadcrumbs">
             <ol>
               <li><a href="index.html">Home</a></li>
-              <li class="current">Login VPSC</li>
+              <li class="current">Login to Staff/Student Portal</li>
             </ol>
           </nav>
         </div>
@@ -192,7 +194,7 @@
                 onsubmit="return validateLoginForm(event)"
               >
                 <h3>Login</h3>
-                <p>Enter your credentials below:</p>
+                <p>Enter your staff or student credentials below:</p>
 
                 <div class="row gy-4">
                   <div class="col-12">
@@ -200,7 +202,7 @@
                       type="text"
                       name="user_id"
                       class="form-control"
-                      placeholder="ID"
+                      placeholder="Staff/Student ID"
                       required
                     />
                   </div>
@@ -219,29 +221,6 @@
                     <div id="error-message" style="color: red; display: none">
                       Please enter the correct ID and Password.
                     </div>
-                    <button id="loginButton" type="submit">Login</button>
-                    <br />
-                    <br />
-                    or
-                    <br />
-                    <br />
-                    <a
-                      class="btn-getstarted"
-                      href="join.html"
-                      style="
-                        display: inline-block;
-                        padding: 10px 20px;
-                        background-color: #007bff;
-                        color: white;
-                        text-align: center;
-                        text-decoration: none;
-                        border-radius: 5px;
-                        font-size: 16px;
-                        transition: background-color 0.3s;
-                      "
-                    >
-                      Join VPSC
-                    </a>
                   </div>
                 </div>
               </form>
