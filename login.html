@@ -183,7 +183,14 @@
           <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
             <div
               class="col-lg-5 quote-bg"
-              style="background-image: url(assets/img/quote-bg.jpg)"
+              style="
+                background-image: url(assets/img/quote-bg.jpg);
+                opacity: 0.6;
+                background-size: 50%;
+                background-size: contain; /* Ensures the image scales to fit */
+                background-repeat: no-repeat; /* Prevents the image from repeating */
+                background-position: center; /* Centers the image */
+              "
             ></div>
 
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
