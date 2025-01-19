@@ -161,7 +161,7 @@
         style="background-image: url(assets/img/hero-join.jpg)"
       >
         <div class="container position-relative">
-          <h1>Student/Staff Portal</h1>
+          <h1>Student & Staff Portal</h1>
           <p>
             Access your personalized dashboard by logging in below. If you face
             any issues, please contact support at
@@ -170,7 +170,7 @@
           <nav class="breadcrumbs">
             <ol>
               <li><a href="index.html">Home</a></li>
-              <li class="current">Login to Staff/Student Portal</li>
+              <li class="current">Login to Staff & Student Portal</li>
             </ol>
           </nav>
         </div>
@@ -327,12 +327,22 @@
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form"); // Select the form element
         const errorMessage = document.getElementById("error-message");
+        const apiUrl =
+          "https://script.google.com/macros/s/AKfycbytGizP33VC1Z27beZZC3YvpiCLlV_up5gA7aduOk7cVO6ruhxfhTMQlXolwh-7FY2nxA/exec"; // Replace with your Apps Script Web App URL
+
+        const userId = document.querySelector('input[name="user_id"]');
+        const password = document.querySelector('input[name="password"]');
+
+        // Clear fields immediately on focus
+        [userId, password].forEach((input) => {
+          input.addEventListener("focus", () => {
+            input.value = "";
+            errorMessage.style.display = "none";
+          });
+        });
 
         form.addEventListener("submit", function (event) {
           event.preventDefault(); // Prevent the default form submission
-
-          const userId = document.querySelector('input[name="user_id"]');
-          const password = document.querySelector('input[name="password"]');
 
           // Check if either input is empty
           if (!userId.value.trim() || !password.value.trim()) {
@@ -345,12 +355,40 @@
             return;
           }
 
-          // Show error message for incorrect credentials (example)
-          setTimeout(function () {
-            errorMessage.textContent =
-              "Please enter the correct ID and Password.";
-            errorMessage.style.display = "block";
-          }, 1000); // Delay of 1 second (1000 milliseconds)
+          // Show loader in the error message element
+          errorMessage.textContent = "Loading...";
+          errorMessage.style.color = "blue";
+          errorMessage.style.display = "block";
+
+          // Send login data to the server
+          fetch(apiUrl, {
+            method: "POST",
+            body: new URLSearchParams({
+              user_id: userId.value.trim(),
+              password: password.value.trim(),
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              setTimeout(function () {
+                if (data.success) {
+                  alert(data.message);
+                  errorMessage.style.display = "none";
+                } else {
+                  errorMessage.textContent = data.error || "An error occurred.";
+                  errorMessage.style.color = "red";
+                  errorMessage.style.display = "block";
+                }
+              }, 1000); // Delay of 1 second (1000 milliseconds)
+            })
+            .catch((error) => {
+              setTimeout(function () {
+                errorMessage.textContent =
+                  "An error occurred. Please try again.";
+                errorMessage.style.color = "red";
+                errorMessage.style.display = "block";
+              }, 1000); // Delay of 1 second (1000 milliseconds)
+            });
 
           // Clear the input fields
           userId.value = "";

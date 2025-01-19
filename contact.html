@@ -252,11 +252,11 @@
 
             <div class="col-lg-8">
               <form
-                action="forms/contact.php"
+                id="contactForm"
+                action="https://script.google.com/macros/s/AKfycbytGizP33VC1Z27beZZC3YvpiCLlV_up5gA7aduOk7cVO6ruhxfhTMQlXolwh-7FY2nxA/exec"
                 method="post"
                 class="php-email-form"
-                data-aos="fade-up"
-                data-aos-delay="200"
+                novalidate
               >
                 <div class="row gy-4">
                   <div class="col-md-6">
@@ -265,47 +265,45 @@
                       name="name"
                       class="form-control"
                       placeholder="Your Name"
-                      required=""
+                      required
+                      aria-label="Your Name"
                     />
                   </div>
-
                   <div class="col-md-6">
                     <input
                       type="email"
                       class="form-control"
                       name="email"
                       placeholder="Your Email"
-                      required=""
+                      required
+                      aria-label="Your Email"
                     />
                   </div>
-
                   <div class="col-md-12">
                     <input
                       type="text"
                       class="form-control"
                       name="subject"
                       placeholder="Subject"
-                      required=""
+                      required
+                      aria-label="Subject"
                     />
                   </div>
-
                   <div class="col-md-12">
                     <textarea
                       class="form-control"
                       name="message"
                       rows="6"
                       placeholder="Message"
-                      required=""
+                      required
+                      aria-label="Message"
                     ></textarea>
                   </div>
-
                   <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
+                    <div class="loading" style="display: none">Loading...</div>
+                    <div class="sent-message" style="display: none">
                       Your message has been sent. Thank you!
                     </div>
-
                     <button type="submit">Send Message</button>
                   </div>
                 </div>
@@ -402,5 +400,40 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          let form = event.target;
+          let formData = new FormData(form);
+
+          // Hide any previous messages
+          document.querySelector(".sent-message").style.display = "none";
+          document.querySelector(".loading").style.display = "block";
+
+          try {
+            let response = await fetch(form.action, {
+              method: "POST",
+              body: formData,
+            });
+
+            if (response.ok) {
+              document.querySelector(".loading").style.display = "none";
+              document.querySelector(".sent-message").style.display = "block";
+              document.querySelector(".loading").remove();
+            } else {
+              throw new Error(
+                "Failed to send message. Please try again later."
+              );
+            }
+          } catch (error) {
+            alert("There was an issue sending your message: " + error.message);
+          } finally {
+            document.querySelector(".loading").remove();
+          }
+        });
+    </script>
   </body>
 </html>
